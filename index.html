@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <!-- Android表示対応 -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+
+    <!-- PWA設定 -->
+    <link rel="manifest"
+          href="./manifest.json">
+
+
+    <!-- Android Chrome用 -->
+    <meta name="theme-color"
+          content="#3b6d45">
+
+
+    <meta name="mobile-web-app-capable"
+          content="yes">
+
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="default">
+
+
+
+    <!-- アイコン -->
+
+    <link rel="icon"
+          href="./icons/icon-192.png">
+
+
+    <link rel="apple-touch-icon"
+          href="./icons/icon-192.png">
+
+
+
+
+    <title>
+        のさり勤怠
+    </title>
+
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+          href="./style.css">
+
+
+</head>
+
+
+
+<body>
+
+
+
+<header class="header">
+
+
+    <h1>
+        のさり勤怠
+    </h1>
+
+
+    <p id="todayDisplay">
+        
+    </p>
+
+
+</header>
+
+
+
+
+
+<main>
+
+
+
+
+<!-- ======================
+     打刻
+====================== -->
+
+
+<section class="card">
+
+
+<h2>
+    打刻
+</h2>
+
+
+
+<label>
+    スタッフ選択
+</label>
+
+
+
+<select id="staffSelect">
+
+</select>
+
+
+
+
+<div class="button-area">
+
+
+<button
+    id="clockInBtn"
+    class="btn start">
+
+    出勤
+
+</button>
+
+
+
+<button
+    id="clockOutBtn"
+    class="btn end">
+
+    退勤
+
+</button>
+
+
+</div>
+
+
+
+
+<p id="message">
+
+</p>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ======================
+     今日の勤務
+====================== -->
+
+
+<section class="card">
+
+
+<h2>
+    本日の勤務状況
+</h2>
+
+
+
+<div id="todayList">
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ======================
+     スタッフ管理
+====================== -->
+
+
+<section class="card">
+
+
+<h2>
+    スタッフ管理
+</h2>
+
+
+
+<div class="staff-manage">
+
+
+<input
+    id="newStaffName"
+    type="text"
+    placeholder="スタッフ名">
+
+
+<button
+    id="addStaffBtn"
+    class="btn">
+
+追加
+
+</button>
+
+
+</div>
+
+
+
+
+<ul id="staffList">
+
+
+</ul>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ======================
+     データ管理
+====================== -->
+
+
+<section class="card">
+
+
+<h2>
+    データ管理
+</h2>
+
+
+
+<button
+    id="csvBtn"
+    class="btn">
+
+CSV出力
+
+</button>
+
+
+
+
+<button
+    id="clearBtn"
+    class="btn danger">
+
+データ削除
+
+</button>
+
+
+
+</section>
+
+
+
+
+</main>
+
+
+
+
+
+
+
+<footer>
+
+
+<p>
+
+のさり勤怠 Ver.2.0
+
+</p>
+
+
+</footer>
+
+
+
+
+
+
+<!-- JavaScript -->
+
+<script src="./app.js"></script>
+
+
+
+</body>
+
+
+</html>

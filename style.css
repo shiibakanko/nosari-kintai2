@@ -1,0 +1,557 @@
+/* ===================================
+
+   のさり勤怠 Ver.2.0
+
+   style.css
+
+   PWA公開版
+
+=================================== */
+
+
+/* ===============================
+   基本設定
+================================ */
+
+
+* {
+
+    box-sizing:border-box;
+
+}
+
+
+
+html {
+
+    height:100%;
+
+}
+
+
+
+body {
+
+    margin:0;
+
+    min-height:100%;
+
+
+    font-family:
+
+    -apple-system,
+    BlinkMacSystemFont,
+    "Noto Sans JP",
+    sans-serif;
+
+
+    background:#f3f4f6;
+
+
+    color:#333;
+
+
+    -webkit-tap-highlight-color:transparent;
+
+
+}
+
+
+
+
+
+
+/* ===============================
+   ヘッダー
+================================ */
+
+
+.header {
+
+
+    background:#3b6d45;
+
+
+    color:white;
+
+
+    text-align:center;
+
+
+    padding:
+
+    25px 10px;
+
+
+}
+
+
+
+.header h1 {
+
+
+    margin:0;
+
+
+    font-size:30px;
+
+
+}
+
+
+
+#todayDisplay {
+
+
+    margin:12px 0 0;
+
+
+    font-size:17px;
+
+
+}
+
+
+
+
+
+
+/* ===============================
+   メイン
+================================ */
+
+
+main {
+
+
+    padding:15px;
+
+
+    max-width:600px;
+
+
+    margin:auto;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   カード
+================================ */
+
+
+.card {
+
+
+    background:white;
+
+
+    border-radius:16px;
+
+
+    padding:20px;
+
+
+    margin-bottom:20px;
+
+
+    box-shadow:
+
+
+    0 3px 10px rgba(0,0,0,0.12);
+
+
+}
+
+
+
+.card h2 {
+
+
+    margin-top:0;
+
+
+    font-size:22px;
+
+
+    padding-bottom:10px;
+
+
+    border-bottom:
+
+    2px solid #eeeeee;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   選択欄
+================================ */
+
+
+select {
+
+
+    width:100%;
+
+
+    margin-top:10px;
+
+
+    padding:16px;
+
+
+    font-size:22px;
+
+
+    border-radius:12px;
+
+
+    border:
+
+    1px solid #cccccc;
+
+
+    background:white;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   ボタン
+================================ */
+
+
+.button-area {
+
+
+    display:flex;
+
+
+    gap:15px;
+
+
+    margin-top:20px;
+
+
+}
+
+
+
+
+
+.btn {
+
+
+    flex:1;
+
+
+    min-height:55px;
+
+
+    padding:15px;
+
+
+    border:none;
+
+
+    border-radius:12px;
+
+
+    font-size:20px;
+
+
+    color:white;
+
+
+    background:#666;
+
+
+}
+
+
+
+.btn:active {
+
+
+    transform:scale(0.96);
+
+
+}
+
+
+
+
+
+
+
+/* 出勤 */
+
+
+.start {
+
+
+    background:#2e8b57;
+
+
+}
+
+
+
+
+
+
+/* 退勤 */
+
+
+.end {
+
+
+    background:#d9534f;
+
+
+}
+
+
+
+
+
+/* 削除 */
+
+
+.danger {
+
+
+    background:#9b2226;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   メッセージ
+================================ */
+
+
+#message {
+
+
+    text-align:center;
+
+
+    min-height:25px;
+
+
+    margin-top:15px;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   勤務一覧
+================================ */
+
+
+#todayList {
+
+
+    font-size:17px;
+
+
+}
+
+
+
+.work-row {
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    padding:12px 5px;
+
+
+    border-bottom:
+
+    1px solid #ddd;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   スタッフ管理
+================================ */
+
+
+.staff-manage {
+
+
+    display:flex;
+
+
+    gap:10px;
+
+
+}
+
+
+
+.staff-manage input {
+
+
+    flex:1;
+
+
+    padding:14px;
+
+
+    font-size:18px;
+
+
+    border-radius:10px;
+
+
+    border:
+
+    1px solid #ccc;
+
+
+}
+
+
+
+#staffList {
+
+
+    padding-left:20px;
+
+
+}
+
+
+
+#staffList li {
+
+
+    padding:12px 5px;
+
+
+    font-size:18px;
+
+
+    border-bottom:
+
+    1px solid #ddd;
+
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   フッター
+================================ */
+
+
+footer {
+
+
+    text-align:center;
+
+
+    padding:25px;
+
+
+    color:#777;
+
+
+    font-size:14px;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   小型スマホ対応
+================================ */
+
+
+@media(max-width:400px){
+
+
+
+    .button-area {
+
+
+        flex-direction:column;
+
+
+    }
+
+
+
+
+    .btn {
+
+
+        font-size:22px;
+
+
+    }
+
+
+
+}
