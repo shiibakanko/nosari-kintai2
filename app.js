@@ -656,7 +656,94 @@ function addStaff(name){
 
     loadStaff();
 
-    showMessage(name+" を追加しました");
+const addStaffBtn =
+document.getElementById("addStaffBtn");
+
+
+const newStaffName =
+document.getElementById("newStaffName");
+
+
+
+if(addStaffBtn){
+
+
+    addStaffBtn.onclick=function(){
+
+
+        const name =
+
+        newStaffName.value.trim();
+
+
+
+        if(!name){
+
+
+            showMessage(
+
+                "名前を入力してください"
+
+            );
+
+
+            return;
+
+
+        }
+
+
+
+        let staff = getStaff();
+
+
+
+        if(
+
+            staff.includes(name)
+
+        ){
+
+
+            showMessage(
+
+                "登録済みです"
+
+            );
+
+
+            return;
+
+
+        }
+
+
+
+        staff.push(name);
+
+
+
+        saveStaff(staff);
+
+
+
+        newStaffName.value="";
+
+
+
+        loadStaff();
+
+
+
+        showMessage(
+
+            name+"を追加しました"
+
+        );
+
+
+    };
+
 
 }
 // ===================================
