@@ -75,6 +75,21 @@ document.getElementById("adminBtn");
 const adminArea =
 document.getElementById("adminArea");
 
+const addStaffBtn =
+document.getElementById("addStaffBtn");
+
+
+const newStaffName =
+document.getElementById("newStaffName");
+
+
+const staffList =
+document.getElementById("staffList");
+
+
+const attendanceList =
+document.getElementById("attendanceList");
+
 // ===================================
 // 起動
 // ===================================
