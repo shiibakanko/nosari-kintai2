@@ -1,25 +1,21 @@
 /* ===================================
 
-   のさり勤怠 Ver.2.0
+   のさり勤怠 Ver.3.0
 
    service-worker.js
 
-   PWA公開版
+   PWA Offline
 
 =================================== */
 
 
-
 const CACHE_NAME =
 
-"nosari-kintai-v2.0";
+"nosari-kintai-v3";
 
 
 
-
-
-const CACHE_FILES = [
-
+const FILES = [
 
     "./",
 
@@ -31,10 +27,7 @@ const CACHE_FILES = [
 
     "./manifest.json"
 
-
 ];
-
-
 
 
 
@@ -42,7 +35,6 @@ const CACHE_FILES = [
 // ===================================
 // インストール
 // ===================================
-
 
 self.addEventListener(
 
@@ -60,41 +52,95 @@ event=>{
 
         )
 
-        .then(
-
-            cache=>{
+        .then(cache=>{
 
 
-                return cache.addAll(
+            return cache.addAll(
 
-                    CACHE_FILES
+                FILES
 
-                );
+            );
 
 
-            }
-
-        )
+        })
 
 
     );
 
 
-}
-
-);
+    self.skipWaiting();
 
 
-
+});
 
 
 
 
 
 // ===================================
-// 通信処理
+// 起動
 // ===================================
 
+self.addEventListener(
+
+"activate",
+
+event=>{
+
+
+    event.waitUntil(
+
+
+        caches.keys()
+
+        .then(keys=>{
+
+
+            return Promise.all(
+
+                keys.map(key=>{
+
+
+                    if(
+
+                    key !== CACHE_NAME
+
+                    ){
+
+
+                        return caches.delete(
+
+                            key
+
+                        );
+
+
+                    }
+
+
+                })
+
+            );
+
+
+        })
+
+
+    );
+
+
+    self.clients.claim();
+
+
+});
+
+
+
+
+
+// ===================================
+// キャッシュ取得
+// ===================================
 
 self.addEventListener(
 
@@ -112,102 +158,22 @@ event=>{
 
         )
 
-        .then(
-
-            response=>{
+        .then(response=>{
 
 
-                return response ||
+            return response ||
 
-                fetch(
+            fetch(
 
-                    event.request
+                event.request
 
-                );
+            );
 
 
-            }
-
-        )
+        })
 
 
     );
 
 
-}
-
-);
-
-
-
-
-
-
-
-
-// ===================================
-// 更新処理
-// ===================================
-
-
-self.addEventListener(
-
-"activate",
-
-event=>{
-
-
-    event.waitUntil(
-
-
-        caches.keys()
-
-        .then(
-
-            keys=>{
-
-
-                return Promise.all(
-
-
-                    keys.map(
-
-                        key=>{
-
-
-                            if(
-
-                            key !== CACHE_NAME
-
-                            ){
-
-
-                                return caches.delete(
-
-                                    key
-
-                                );
-
-
-                            }
-
-
-                        }
-
-                    )
-
-
-                );
-
-
-            }
-
-        )
-
-
-    );
-
-
-}
-
-);
+});

@@ -3,11 +3,9 @@
 
     "short_name": "のさり勤怠",
 
-    "description": "のさり店舗用勤怠管理アプリ",
+    "description": "飲食店向けシンプル勤怠管理アプリ",
 
     "start_url": "./index.html",
-
-    "scope": "./",
 
     "display": "standalone",
 
@@ -15,14 +13,14 @@
 
     "background_color": "#ffffff",
 
-    "theme_color": "#3b6d45",
+    "theme_color": "#333333",
 
     "lang": "ja",
 
     "icons": [
 
         {
-            "src": "./icons/icon-192.png",
+            "src": "icon-192.png",
 
             "sizes": "192x192",
 
@@ -30,7 +28,7 @@
         },
 
         {
-            "src": "./icons/icon-512.png",
+            "src": "icon-512.png",
 
             "sizes": "512x512",
 
@@ -38,5 +36,4 @@
         }
 
     ]
-
 }

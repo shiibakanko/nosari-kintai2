@@ -1,17 +1,15 @@
 /* ===================================
-
-   のさり勤怠 Ver.2.0
+   のさり勤怠 Ver.3.0
 
    style.css
 
-   PWA公開版
-
+   シンプル・軽量版
 =================================== */
 
 
-/* ===============================
-   基本設定
-================================ */
+/* ===================================
+   基本
+=================================== */
 
 
 * {
@@ -22,92 +20,61 @@
 
 
 
-html {
-
-    height:100%;
-
-}
-
-
-
 body {
 
     margin:0;
 
-    min-height:100%;
-
+    padding:20px;
 
     font-family:
 
     -apple-system,
+
     BlinkMacSystemFont,
-    "Noto Sans JP",
+
+    "Segoe UI",
+
     sans-serif;
 
-
-    background:#f3f4f6;
-
+    background:#f5f5f5;
 
     color:#333;
 
-
-    -webkit-tap-highlight-color:transparent;
-
-
 }
 
 
 
 
 
-
-/* ===============================
-   ヘッダー
-================================ */
-
-
-.header {
-
-
-    background:#3b6d45;
-
-
-    color:white;
-
+header {
 
     text-align:center;
 
-
-    padding:
-
-    25px 10px;
-
+    margin-bottom:20px;
 
 }
 
 
 
-.header h1 {
 
 
-    margin:0;
+h1 {
 
+    margin:0 0 10px;
 
-    font-size:30px;
-
+    font-size:32px;
 
 }
+
+
 
 
 
 #todayDisplay {
 
+    font-size:18px;
 
-    margin:12px 0 0;
-
-
-    font-size:17px;
-
+    color:#555;
 
 }
 
@@ -115,35 +82,9 @@ body {
 
 
 
-
-/* ===============================
-   メイン
-================================ */
-
-
-main {
-
-
-    padding:15px;
-
-
-    max-width:600px;
-
-
-    margin:auto;
-
-
-}
-
-
-
-
-
-
-
-/* ===============================
+/* ===================================
    カード
-================================ */
+=================================== */
 
 
 .card {
@@ -152,7 +93,7 @@ main {
     background:white;
 
 
-    border-radius:16px;
+    border-radius:12px;
 
 
     padding:20px;
@@ -163,29 +104,22 @@ main {
 
     box-shadow:
 
-
-    0 3px 10px rgba(0,0,0,0.12);
+    0 2px 8px rgba(0,0,0,0.08);
 
 
 }
 
 
 
-.card h2 {
+
+
+h2 {
 
 
     margin-top:0;
 
 
-    font-size:22px;
-
-
-    padding-bottom:10px;
-
-
-    border-bottom:
-
-    2px solid #eeeeee;
+    font-size:24px;
 
 
 }
@@ -194,11 +128,26 @@ main {
 
 
 
+h3 {
 
 
-/* ===============================
-   選択欄
-================================ */
+    border-bottom:
+
+    1px solid #ddd;
+
+
+    padding-bottom:8px;
+
+
+}
+
+
+
+
+
+/* ===================================
+   選択
+=================================== */
 
 
 select {
@@ -207,24 +156,16 @@ select {
     width:100%;
 
 
-    margin-top:10px;
+    height:60px;
 
 
-    padding:16px;
+    font-size:24px;
 
 
-    font-size:22px;
+    padding:10px;
 
 
-    border-radius:12px;
-
-
-    border:
-
-    1px solid #cccccc;
-
-
-    background:white;
+    margin-bottom:20px;
 
 
 }
@@ -233,12 +174,68 @@ select {
 
 
 
+input {
+
+
+    height:50px;
+
+
+    font-size:20px;
+
+
+    padding:8px;
+
+
+}
 
 
 
-/* ===============================
+
+
+/* ===================================
    ボタン
-================================ */
+=================================== */
+
+
+button {
+
+
+    width:100%;
+
+
+    height:70px;
+
+
+    font-size:24px;
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    margin:8px 0;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+
+button:active {
+
+
+    transform:scale(0.98);
+
+
+}
+
+
+
 
 
 .button-area {
@@ -250,6 +247,114 @@ select {
     gap:15px;
 
 
+}
+
+
+
+
+
+.button-area button {
+
+
+    flex:1;
+
+
+}
+
+
+
+
+
+/* ===================================
+   メッセージ
+=================================== */
+
+
+#message {
+
+
+    text-align:center;
+
+
+    font-size:20px;
+
+
+    min-height:30px;
+
+
+    margin-top:10px;
+
+
+    color:#0066cc;
+
+
+}
+
+
+
+
+
+/* ===================================
+   勤務一覧
+=================================== */
+
+
+.work-row,
+
+
+.attendance-row {
+
+
+    display:grid;
+
+
+    grid-template-columns:
+
+    1fr 2fr;
+
+
+    gap:10px;
+
+
+    padding:12px;
+
+
+    border-bottom:
+
+    1px solid #ddd;
+
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+.attendance-row {
+
+
+    grid-template-columns:
+
+    1fr 1fr 2fr 1fr;
+
+
+}
+
+
+
+
+
+/* ===================================
+   管理画面
+=================================== */
+
+
+#adminArea {
+
+
     margin-top:20px;
 
 
@@ -259,41 +364,13 @@ select {
 
 
 
-.btn {
+#staffList {
 
 
-    flex:1;
+    padding:0;
 
 
-    min-height:55px;
-
-
-    padding:15px;
-
-
-    border:none;
-
-
-    border-radius:12px;
-
-
-    font-size:20px;
-
-
-    color:white;
-
-
-    background:#666;
-
-
-}
-
-
-
-.btn:active {
-
-
-    transform:scale(0.96);
+    list-style:none;
 
 
 }
@@ -302,101 +379,7 @@ select {
 
 
 
-
-
-/* 出勤 */
-
-
-.start {
-
-
-    background:#2e8b57;
-
-
-}
-
-
-
-
-
-
-/* 退勤 */
-
-
-.end {
-
-
-    background:#d9534f;
-
-
-}
-
-
-
-
-
-/* 削除 */
-
-
-.danger {
-
-
-    background:#9b2226;
-
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   メッセージ
-================================ */
-
-
-#message {
-
-
-    text-align:center;
-
-
-    min-height:25px;
-
-
-    margin-top:15px;
-
-
-    font-weight:bold;
-
-
-}
-
-
-
-
-
-
-
-
-/* ===============================
-   勤務一覧
-================================ */
-
-
-#todayList {
-
-
-    font-size:17px;
-
-
-}
-
-
-
-.work-row {
+#staffList li {
 
 
     display:flex;
@@ -405,7 +388,10 @@ select {
     justify-content:space-between;
 
 
-    padding:12px 5px;
+    align-items:center;
+
+
+    padding:10px;
 
 
     border-bottom:
@@ -413,78 +399,48 @@ select {
     1px solid #ddd;
 
 
-}
-
-
-
-
-
-
-
-/* ===============================
-   スタッフ管理
-================================ */
-
-
-.staff-manage {
-
-
-    display:flex;
-
-
-    gap:10px;
+    font-size:20px;
 
 
 }
 
 
 
-.staff-manage input {
 
 
-    flex:1;
+#staffList button {
 
 
-    padding:14px;
+    width:100px;
+
+
+    height:45px;
 
 
     font-size:18px;
 
 
-    border-radius:10px;
-
-
-    border:
-
-    1px solid #ccc;
-
-
 }
 
 
 
-#staffList {
 
 
-    padding-left:20px;
+/* ===================================
+   ファイル選択
+=================================== */
 
 
-}
+input[type="file"] {
 
 
-
-#staffList li {
-
-
-    padding:12px 5px;
+    width:100%;
 
 
     font-size:18px;
 
 
-    border-bottom:
-
-    1px solid #ddd;
+    margin:10px 0;
 
 
 }
@@ -493,65 +449,24 @@ select {
 
 
 
+/* ===================================
+   タブレット調整
+=================================== */
 
 
-
-/* ===============================
-   フッター
-================================ */
+@media(min-width:700px){
 
 
-footer {
+    body {
 
 
-    text-align:center;
+        max-width:700px;
 
 
-    padding:25px;
-
-
-    color:#777;
-
-
-    font-size:14px;
-
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   小型スマホ対応
-================================ */
-
-
-@media(max-width:400px){
-
-
-
-    .button-area {
-
-
-        flex-direction:column;
+        margin:auto;
 
 
     }
-
-
-
-
-    .btn {
-
-
-        font-size:22px;
-
-
-    }
-
 
 
 }

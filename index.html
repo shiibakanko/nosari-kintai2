@@ -1,227 +1,326 @@
 <!DOCTYPE html>
+
 <html lang="ja">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-    <title>のさり勤怠 Ver.3.0</title>
+<meta charset="UTF-8">
 
-    <meta name="theme-color" content="#4CAF50">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="icon" href="icons/icon-192.png">
 
-    <link rel="stylesheet" href="style.css">
+<title>
+のさり勤怠 Ver.3.0
+</title>
+
+
+<link rel="stylesheet" href="style.css">
+
+
+<link rel="manifest" href="manifest.json">
+
+
 </head>
+
 
 <body>
 
-<!-- =====================================================
-     ヘッダー
-===================================================== -->
 
 <header>
 
-    <h1>のさり勤怠</h1>
+<h1>
+のさり勤怠
+</h1>
 
-    <div id="currentDate"></div>
 
-    <div id="currentTime"></div>
+<div id="todayDisplay">
+
+</div>
+
 
 </header>
 
-<!-- =====================================================
-     メイン
-===================================================== -->
+
+
+
 
 <main>
 
-    <!-- スタッフ選択 -->
 
-    <section class="card">
+<!-- =========================
+スタッフ打刻
+========================= -->
 
-        <h2>スタッフ</h2>
 
-        <select id="staffSelect">
-            <option value="">スタッフを選択してください</option>
-        </select>
+<section class="card">
 
-    </section>
 
-    <!-- 出勤退勤 -->
+<h2>
+出退勤
+</h2>
 
-    <section class="card buttonArea">
 
-        <button id="clockInBtn">
 
-            出勤
+<select id="staffSelect">
 
-        </button>
+</select>
 
-        <button id="clockOutBtn">
 
-            退勤
 
-        </button>
+<div class="button-area">
 
-    </section>
 
-    <!-- メッセージ -->
+<button id="clockInBtn">
 
-    <section class="card">
+出勤
 
-        <div id="message">
+</button>
 
-            お疲れ様です！
 
-        </div>
 
-    </section>
+<button id="clockOutBtn">
+
+退勤
+
+</button>
+
+
+</div>
+
+
+
+<div id="message">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+本日の勤務
+========================= -->
+
+
+<section class="card">
+
+
+<h2>
+
+本日の勤務
+
+</h2>
+
+
+<div id="todayList">
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- =========================
+管理者
+========================= -->
+
+
+<section class="card">
+
+
+<button id="adminBtn">
+
+管理者画面
+
+</button>
+
+
+
+
+<div id="adminArea"
+style="display:none;">
+
+
+
+<h2>
+
+管理者メニュー
+
+</h2>
+
+
+
+
+
+<!-- スタッフ管理 -->
+
+
+<h3>
+
+スタッフ管理
+
+</h3>
+
+
+
+<ul id="staffList">
+
+</ul>
+
+
+
+
+
+<div>
+
+<input
+
+id="newStaffName"
+
+type="text"
+
+placeholder="スタッフ名">
+
+
+<button id="addStaffBtn">
+
+追加
+
+</button>
+
+</div>
+
+
+
+
+
+
+<!-- 勤怠履歴 -->
+
+
+<h3>
+
+勤怠履歴
+
+</h3>
+
+
+<div id="attendanceList">
+
+</div>
+
+
+
+
+
+
+<!-- データ管理 -->
+
+
+<h3>
+
+データ管理
+
+</h3>
+
+
+
+<button id="csvBtn">
+
+CSV出力
+
+</button>
+
+
+
+<button id="backupBtn">
+
+バックアップ
+
+</button>
+
+
+
+
+<input
+
+id="restoreFile"
+
+type="file"
+
+accept=".json">
+
+
+<button id="restoreBtn">
+
+復元
+
+</button>
+
+
+
+
+
+<button id="clearBtn">
+
+勤怠全削除
+
+</button>
+
+
+
+
+
+
+<!-- 設定 -->
+
+
+<h3>
+
+設定
+
+</h3>
+
+
+
+<button id="changePinBtn">
+
+PIN変更
+
+</button>
+
+
+
+
+</div>
+
+
+</section>
+
+
 
 </main>
 
-<!-- =====================================================
-     フッター
-===================================================== -->
 
-<footer>
 
-    <button id="adminOpen">
 
-        ⚙ 管理者
 
-    </button>
-
-</footer>
-
-<!-- =====================================================
-     管理者ログイン
-===================================================== -->
-
-<div id="adminModal" class="modal hidden">
-
-    <div class="modalContent">
-
-        <h2>管理者ログイン</h2>
-
-        <input
-            type="password"
-            id="pinInput"
-            maxlength="8"
-            placeholder="PINコード">
-
-        <div class="modalButtons">
-
-            <button id="pinLogin">
-
-                ログイン
-
-            </button>
-
-            <button id="pinCancel">
-
-                キャンセル
-
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-<!-- =====================================================
-     管理画面
-===================================================== -->
-
-<div id="adminPanel" class="hidden">
-
-    <h2>
-
-        管理メニュー
-
-    </h2>
-
-    <!-- データ管理 -->
-
-    <section class="card">
-
-        <h3>
-
-            データ管理
-
-        </h3>
-
-        <button id="csvBtn">
-
-            CSV出力
-
-        </button>
-
-        <button id="staffBtn">
-
-            スタッフ管理
-
-        </button>
-
-        <button id="backupBtn">
-
-            バックアップ
-
-        </button>
-
-        <button id="restoreBtn">
-
-            復元
-
-        </button>
-
-    </section>
-
-    <!-- 設定 -->
-
-    <section class="card">
-
-        <h3>
-
-            システム設定
-
-        </h3>
-
-        <button id="settingBtn">
-
-            営業時間
-
-        </button>
-
-        <button id="changePinBtn">
-
-            PIN変更
-
-        </button>
-
-        <button id="resetPinBtn">
-
-            PIN再設定
-
-        </button>
-
-    </section>
-
-    <button id="closeAdmin">
-
-        戻る
-
-    </button>
-
-</div>
-
-<!-- =====================================================
-     JavaScript
-===================================================== -->
 
 <script src="app.js"></script>
 
+
 </body>
+
 </html>
