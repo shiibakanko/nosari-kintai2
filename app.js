@@ -628,43 +628,6 @@ function loadToday(){
 // スタッフ追加
 // ===================================
 
-function addStaff(name){
-
-    name = name.trim();
-
-    if(name===""){
-
-        showMessage("名前を入力してください");
-
-        return;
-
-    }
-
-    const staff = getStaff();
-
-    if(staff.includes(name)){
-
-        showMessage("登録済みです");
-
-        return;
-
-    }
-
-    staff.push(name);
-
-    saveStaff(staff);
-
-    loadStaff();
-
-const addStaffBtn =
-document.getElementById("addStaffBtn");
-
-
-const newStaffName =
-document.getElementById("newStaffName");
-
-
-
 if(addStaffBtn){
 
 
@@ -672,50 +635,25 @@ if(addStaffBtn){
 
 
         const name =
-
         newStaffName.value.trim();
 
 
 
-        if(!name){
+        if(name===""){
 
 
             showMessage(
-
                 "名前を入力してください"
-
             );
 
 
             return;
-
 
         }
 
 
 
         let staff = getStaff();
-
-
-
-        if(
-
-            staff.includes(name)
-
-        ){
-
-
-            showMessage(
-
-                "登録済みです"
-
-            );
-
-
-            return;
-
-
-        }
 
 
 
@@ -737,7 +675,7 @@ if(addStaffBtn){
 
         showMessage(
 
-            name+"を追加しました"
+            name + "を追加しました"
 
         );
 
@@ -745,8 +683,7 @@ if(addStaffBtn){
     };
 
 
-}
-// ===================================
+}// ===================================
 // スタッフ削除
 // ===================================
 
